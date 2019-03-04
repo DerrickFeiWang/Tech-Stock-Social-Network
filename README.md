@@ -7,7 +7,7 @@ For this purpose, I analyzed 100974 news articles related to 633 stocks in the T
 Table 1. Example of the stocks in the tech company list
 ![1 stocklist](https://user-images.githubusercontent.com/44976640/53704509-be880800-3de2-11e9-8ea0-871c79ebb72d.PNG)
                 
-Among these news articles, 72.5% of the articles are specific for one single stock, which can't be used to build the graph, therefore were excluded. 2.5% of the articles relating 5 to tens of stocks. In many cases, these articles simply summarized the price changes of stocks that may not be close related in business.  This kind of news were also excluded. Only news articles relating 2 to 4 stocks are used to build stock network graph. This cohort consists of 27229 news articles, 600 stocks. Data preprocessing was done using Python. After filtering out the unwanted news, I got the following list that was used to build the graph.
+Among these news articles, 72.5% of the articles are specific for one single stock, which can't be used to build the graph, therefore were excluded. 2.5% of the articles relating 5 to tens of stocks. In many cases, these articles simply summarized the price changes of stocks that may not be closely related in business.  This kind of news were also excluded. Only news articles relating 2 to 4 stocks are used to build stock network graph. This cohort consists of 27229 news articles, 600 stocks. Data preprocessing was done using Python. After filtering out the unwanted news, I got the following list that was used to build the graph.
 
 Table 2. Example of the stocks and newsID in the dataset for building the graph
 
@@ -15,7 +15,7 @@ Table 2. Example of the stocks and newsID in the dataset for building the graph
 
 In this dataset, the relationship is bi-directional, therefore there are at least two records for each news ID, representing bi-directional relationship between each pair of stocks.  As you can see in Table 2,  NewsID 196748 connects two stocks, has two records, one direction each. NewsID 199630 connects 3 stocks, has six records. We will discuss in more detail later. 
 
-Since we have 27229 news articles, it will be too many nodes for Neo4j to handle promptly, and the graph will be too busy to view if we load all news articles into Neo4j as nodes.  Instead, we can load only  stocks as nodes, each news article will be represented as relationship(s) between stocks, each news were stored as 1 count in the count property of the relationships. We can use the following cypher command to create the graph, and store the count of news as a relationship property.
+Since we have 27229 news articles, it will be too many nodes for Neo4j to handle promptly, and the graph will be too busy to view if we load all news articles into Neo4j as nodes.  Instead, we can load only  stocks as nodes, each news article will be represented as relationship(s) between stocks, each news was stored as 1 count in the count property of the relationships. We can use the following cypher command to create the graph, and store the count of news as a relationship property.
 
 ![3 cypher 1](https://user-images.githubusercontent.com/44976640/53704553-29d1da00-3de3-11e9-8824-62e379673509.PNG)
 
@@ -30,7 +30,7 @@ The resulted social network of tech stocks is shown below. As expected, stocks i
 ![5 all_colorbyindustry](https://user-images.githubusercontent.com/44976640/53704645-1a06c580-3de4-11e9-8633-518af2b6b9da.png)
 
 
-Sitting in the center of this social network are technology super stars, such as AAPL, MSFT, CSCO, IBM, etc. 
+Sitting in the center of this social network are technology superstars, such as AAPL, MSFT, CSCO, IBM, etc. 
 
 ![6 center](https://user-images.githubusercontent.com/44976640/53704687-8e416900-3de4-11e9-9ab2-d06c0f126ec7.PNG)
 
@@ -50,7 +50,7 @@ Cluster 9 (colored in red) are stocks with price below the starting point (03/17
 
 
 When reporting a stock, news article sometimes also mention its peers in the same business, as well as upstream and downstream partners. This gives us an opportunity to build stock networks and have a big picture of major players in the field.  With the graph built using the news data, we can easily find out players in the business field of interest. For example, on the top-center of the network, there is a group of 5 video game stocks (EA, ATVI, GLUU, ZNGA, TTWO). The data shows that on overall, video game stocks are good performers.
-On the upper right, there is a group of 6 solar energy related companies (SEDG, SOL, CSIQ, SPWR, JKS, ENPH). Four of them perform similar to NASDAQ index, two of them (SEDG, ENPH) outperformed the market.
+On the upper right, there is a group of 6 solar energy-related companies (SEDG, SOL, CSIQ, SPWR, JKS, ENPH). Four of them perform similar to NASDAQ index, two of them (SEDG, ENPH) outperformed the market.
 
 ![10 detail ver2](https://user-images.githubusercontent.com/44976640/53704745-014adf80-3de5-11e9-891c-2e4a50d3c6fc.PNG)
 
