@@ -20,7 +20,7 @@ Since we have 27229 news articles, it will be too many nodes for Neo4j to handle
 ![3 cypher 1](https://user-images.githubusercontent.com/44976640/53704553-29d1da00-3de3-11e9-8824-62e379673509.PNG)
 
 Now we can use the following methods to detect the communities, as well as centrality and page rank of each stock node.
-![4 graph algorythm](https://user-images.githubusercontent.com/44976640/53705353-686a9300-3de9-11e9-88ff-5c782fa6cede.PNG)
+![4 graph algorythm](https://user-images.githubusercontent.com/44976640/53705369-99e35e80-3de9-11e9-8fc3-82a0295440bd.PNG)
 
 After labeling the nodes by the industry of the stocks, and then colored respectively, we can now see the social network of the stocks in communities that have at least two members in each community with the following query.
 ![7 cypher qyery](https://user-images.githubusercontent.com/44976640/53704658-4884a080-3de4-11e9-9faa-fed06699942e.PNG)
