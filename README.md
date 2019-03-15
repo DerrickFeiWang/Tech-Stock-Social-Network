@@ -54,6 +54,15 @@ On the upper right, there is a group of 6 solar energy-related companies (SEDG, 
 
 ![10 detail ver2](https://user-images.githubusercontent.com/44976640/53704745-014adf80-3de5-11e9-891c-2e4a50d3c6fc.PNG)
 
+
+I also examined the centrality of stocks and compare between performance groups, since it looks like bad performers (red nodes) tend to locate on the periphery of the graph. Density plot is shown below. 
+
+![11  Centrality](https://user-images.githubusercontent.com/44976640/54408181-e44cc100-46ae-11e9-828b-523499e867a8.PNG)
+
+Although there seems a trend, it's not statistically significant (p = 0.121, One-way ANOVA).
+
+
+
 ### Discussion:
 Neo4j can only create relationship with one direction. But in our case, the relationship is bi-directional. In order to avoid creating an extra unnecessary relationship just to represent the different directions of the relationship, we created relationship in one direction only between two stock nodes, but we can query the graph database without directions to overcome this inconvenience.
 
